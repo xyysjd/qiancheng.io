@@ -1,0 +1,19 @@
+<p>
+更新系统并安装 Node 与 Yarn<br />
+依次运行下面四行代码，若是 Debian/Ubuntu 系统，请自行替换下面前两行命令中的 yum 为 apt<br />
+
+yum update -y<br />
+yum install -y curl wget sudo nodejs git<br />
+npm install -g cnpm --registry=https://registry.npm.taobao.org<br />
+cnpm install -g yarn<br />
+命令执行完毕以后，请运行下面的代码查询 Node 与 Yarn 是否安装成功，若是成功会返回版本号，如下图。<br />
+
+node -v<br />
+yarn --version
+</p>
+</p>
+防火墙端口命令<br />开启端口 firewall-cmd --zone=public --add-port=端口号/tcp --permanent<br />重启防火墙 firewall-cmd --reload<br />查看开放的端口 firewall-cmd --list-ports
+<br />
+查看防火墙状态 systemctl status firewalld
+</p>
+刷新dns缓存<br />安装：yum install -y nscd<br />使用：service nscd restart
