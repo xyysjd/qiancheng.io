@@ -68,7 +68,7 @@ blue "下载完成"
 bash /root/menu.sh
 }
 
-#性能测试
+#vps性能测试
 function superbench(){
 wget -O "/root/superbench.sh" "https://raw.githubusercontent.com/qd201211/Linux-SpeedTest/master/superbench.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/superbench.sh"
@@ -77,18 +77,28 @@ blue "下载完成"
 bash /root/superbench.sh
 }
 
+#开启bbr
+function tcp(){
+wget -O "/root/tcp.sh" "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" --no-check-certificate -T 30 -t 5 -d
+chmod +x "/root/tcp.sh"
+chmod 777 "/root/tcp.sh"
+blue "下载完成"
+bash /root/tcp.sh
+}
+
 #主菜单
 function start_menu(){
     clear
     red " =================================================="
-                                                blue " 千城专用脚本"
+    blue " 千城专用脚本"
     green " 1. 网速测试"
     green " 2. 路由追踪"
     green " 3. 宝塔开心版"
     green " 4. x-ui安装"
     green " 5. 探针安装"
     green " 6. 安装warp+"
-    green " 7. 性能测试"
+    green " 7. vps性能测试"
+    green " 8. 开启bbr加速"
     green " 0. 退出脚本"
 
 echo
@@ -115,6 +125,9 @@ echo
        7 )
            superbench
                ;;
+       8 )
+           tcp
+               ;;      
        0 )
             exit 1
         ;;
