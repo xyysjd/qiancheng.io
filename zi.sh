@@ -70,7 +70,7 @@ bash /root/menu.sh
 
 #性能测试
 function superbench(){
-wget -O "/root/menu.sh" "https://raw.githubusercontent.com/qd201211/Linux-SpeedTest/master/superbench.sh" --no-check-certificate -T 30 -t 5 -d
+wget -O "/root/superbench.sh" "https://raw.githubusercontent.com/qd201211/Linux-SpeedTest/master/superbench.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/superbench.sh"
 chmod 777 "/root/superbench.sh"
 blue "下载完成"
