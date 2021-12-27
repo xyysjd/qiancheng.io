@@ -93,11 +93,20 @@ curl ip.p3terx.com
 echo
 }
 
+#八合一脚本
+function baheyi(){
+wget -O "/root/install.sh" "https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh" --no-check-certificate -T 30 -t 5 -d
+chmod +x "/root/install.sh"
+chmod 777 "/root/install.sh"
+blue "下载完成"
+bash /root/install.sh
+}
+
 #主菜单
 function start_menu(){
     clear
     red " =================================================="
-    blue " 千城专用脚本"
+    blue "===============----千城专用脚本----==============="
     green " 1. 网速测试"
     green " 2. 路由追踪"
     green " 3. 宝塔开心版"
@@ -107,6 +116,7 @@ function start_menu(){
     green " 7. vps性能测试"
     green " 8. 开启bbr加速"
     green " 9. 获取本机IP"
+    green " 10. 八合一脚本"
     green " 0. 退出脚本"
 
 echo
@@ -138,6 +148,9 @@ echo
                ;;      
        9 )
            getip
+               ;; 
+      10 )
+           baheyi
                ;; 
        0 )
             exit 1
