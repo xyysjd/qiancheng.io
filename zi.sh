@@ -86,6 +86,13 @@ blue "下载完成"
 bash /root/tcp.sh
 }
 
+#获取本机IP
+function getip(){
+echo  
+curl ip.p3terx.com
+echo
+}
+
 #主菜单
 function start_menu(){
     clear
@@ -99,6 +106,7 @@ function start_menu(){
     green " 6. 安装warp+"
     green " 7. vps性能测试"
     green " 8. 开启bbr加速"
+    green " 9. 获取本机IP"
     green " 0. 退出脚本"
 
 echo
@@ -128,6 +136,9 @@ echo
        8 )
            tcp
                ;;      
+       9 )
+           getip
+               ;; 
        0 )
             exit 1
         ;;
