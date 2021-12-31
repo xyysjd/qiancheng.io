@@ -103,7 +103,7 @@ bash /root/install.sh
 }
 
 #主菜单
- start_menu(){
+function start_menu(){
     clear
     blue "===============----群友专用脚本QQ群245102954----==============="
     yellow "===============-------大自然的搬运工-------===============
@@ -162,4 +162,4 @@ echo
         ;;
     esac
 }
-start_menu "first"
+start_menu
