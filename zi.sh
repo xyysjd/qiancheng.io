@@ -104,7 +104,7 @@ bash /root/install.sh
 
 #流媒体检测
 function liumeiti(){
-wget -O "/root/liumeiti.shliumeiti.sh" "https://raw.githubusercontent.com/shidahuilang/SS-SSR-TG-iptables-bt/main/sh/liumeiti.sh" --no-check-certificate -T 30 -t 5 -d
+wget -O "/root/liumeiti.sh" "https://raw.githubusercontent.com/shidahuilang/SS-SSR-TG-iptables-bt/main/sh/liumeiti.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/liumeiti.sh"
 chmod 777 "/root/liumeiti.sh"
 blue "下载完成"
