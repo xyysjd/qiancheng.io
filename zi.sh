@@ -102,6 +102,15 @@ blue "下载完成"
 bash /root/install.sh
 }
 
+#流媒体检测
+function liumeiti(){
+wget -O "/root/liumeiti.shliumeiti.sh" "https://raw.githubusercontent.com/shidahuilang/SS-SSR-TG-iptables-bt/main/sh/liumeiti.sh" --no-check-certificate -T 30 -t 5 -d
+chmod +x "/root/liumeiti.sh"
+chmod 777 "/root/liumeiti.sh"
+blue "下载完成"
+bash /root/liumeiti.sh
+}
+
 #主菜单
 function start_menu(){
     echo 
@@ -117,6 +126,7 @@ function start_menu(){
     green " 8. 开启bbr加速"
     green " 9. 获取本机IP"
     green " 10. 八合一脚本"
+    green " 11. 流媒体检测"
     green " 0. 退出脚本"
 
 echo
@@ -151,6 +161,9 @@ echo
                ;; 
       10 )
            baheyi
+               ;; 
+      11 )
+           liumeiti
                ;; 
        0 )
             exit 1
