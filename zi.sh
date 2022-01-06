@@ -113,7 +113,7 @@ bash /root/liumeiti.sh
 
 #docker
 function docker(){
-curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+wget -N --no-check-certificate https://raw.githubusercontent.com/zhengyi0414/docker/main/docker-install.sh && docker-install.sh
 }
 
 #主菜单
