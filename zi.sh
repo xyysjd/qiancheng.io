@@ -111,6 +111,11 @@ blue "下载完成"
 bash /root/liumeiti.sh
 }
 
+#docker
+function docker(){
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+}
+
 #主菜单
 function start_menu(){
     echo 
@@ -127,6 +132,7 @@ function start_menu(){
     green " 9. 获取本机IP"
     green " 10. 八合一脚本"
     green " 11. 流媒体检测"
+    green " 12. docker"
     green " 0. 退出脚本"
 
 echo
@@ -164,6 +170,9 @@ echo
                ;; 
       11 )
            liumeiti
+               ;; 
+      12 )
+           docker
                ;; 
        0 )
             exit 1
