@@ -113,7 +113,8 @@ bash /root/liumeiti.sh
 
 #docker
 function docker(){
-wget -N --no-check-certificate https://raw.githubusercontent.com/zhengyi0414/docker/main/docker-install.sh && bash docker-install.sh
+wget -N --no-check-certificate https://raw.githubusercontent.com/zhengyi0414/docker/main/docker-install.sh
+bash docker-install.sh
 }
 
 #主菜单
