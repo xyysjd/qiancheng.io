@@ -117,6 +117,11 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/zhengyi0414/doc
 bash docker-install.sh
 }
 
+#哪吒
+function nezha(){
+curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh -o nezha.sh && chmod +x nezha.sh && ./nezha.sh
+}
+
 #主菜单
 function start_menu(){
     echo 
@@ -134,6 +139,7 @@ function start_menu(){
     green " 10. 八合一脚本"
     green " 11. 流媒体检测"
     green " 12. docker"
+    green " 13. 哪吒"
     green " 0. 退出脚本"
 
 echo
@@ -174,6 +180,9 @@ echo
                ;; 
       12 )
            docker
+               ;; 
+      13 )
+           nezha
                ;; 
        0 )
             exit 1
