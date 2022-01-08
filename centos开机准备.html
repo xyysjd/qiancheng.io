@@ -12,8 +12,10 @@ node -v<br />
 yarn --version
 </p>
 </p>
-防火墙端口命令<br />
+centos防火墙端口命令<br />
+安装防火墙 yum -y install firewalld<br />
 开启端口 firewall-cmd --zone=public --add-port=1-65536/tcp --permanent<br />
-重启防火墙 firewall-cmd --reload<br />查看开放的端口 firewall-cmd --list-ports<br />
+重启防火墙 firewall-cmd --reload<br />
+查看开放的端口 firewall-cmd --list-ports<br />
 查看防火墙状态 systemctl status firewalld</p>
 刷新dns缓存<br />安装：yum install -y nscd<br />使用：service nscd restart
