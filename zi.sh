@@ -50,7 +50,7 @@ blue "下载完成"
 bash /root/install.sh
 }
 
-#探针安装
+#可乐
 function status(){
 wget -O "/root/status.sh" "https://raw.githubusercontent.com/cokemine/ServerStatus-Hotaru/master/status.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/status.sh"
@@ -131,7 +131,7 @@ function start_menu(){
     green " 2. 路由追踪"
     green " 3. 宝塔开心版"
     green " 4. x-ui安装"
-    green " 5. 探针安装"
+    green " 5. 可乐"
     green " 6. 安装warp+"
     green " 7. vps性能测试"
     green " 8. 开启bbr加速"
