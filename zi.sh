@@ -199,6 +199,11 @@ function nezha(){
 curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh -o nezha.sh && chmod +x nezha.sh && ./nezha.sh
 }
 
+#优选ip
+function youxuan(){
+curl https://proxy.freecdn.workers.dev/?url=https://raw.githubusercontent.com/badafans/better-cloudflare-ip/master/shell/cf.sh -o cf.sh && chmod +x cf.sh && ./cf.sh
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -223,6 +228,7 @@ function start_menu(){
     green " 11. 哪吒"
     green " 12. 获取本机IP"
     green " 13. docker"
+    green " 14. 优选ip"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -252,6 +258,9 @@ function start_menu(){
       13 ) docker ;;
 #哪吒
       11 ) nezha ;;
+
+#优选ip
+      14 ) youxuan ;;
 #退出
         0 ) exit 1 ;;
     esac
