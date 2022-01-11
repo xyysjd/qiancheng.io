@@ -209,36 +209,50 @@ function start_menu(){
     blue "处理器架构：$arch"
     blue "虚拟化架构：$virt"
     blue "操作系统：$release"
-    blue "内核版本：$kernelVer"                   
-    green " 1. 网速测试"
-    green " 2. 路由追踪"
-    green " 3. 宝塔开心版"
-    green " 4. x-ui安装"
-    green " 5. 可乐"
-    green " 6. 安装warp+"
-    green " 7. vps性能测试"
-    green " 8. 开启bbr加速"
-    green " 9. 获取本机IP"
-    green " 10. 八合一脚本"
-    green " 11. 流媒体检测"
-    green " 12. docker"
-    green " 13. 哪吒"
+    blue "内核版本：$kernelVer" 
+    green " 1. vps性能测试"                  
+    green " 2. 网速测试"
+    green " 3. 路由追踪"
+    green " 4. 流媒体检测"
+    green " 5. 安装warp+"
+    green " 6. 宝塔开心版"
+    green " 7. x-ui安装"
+    green " 8. 八合一脚本"
+    green " 9. 开启bbr加速"
+    green " 10. 可乐"
+    green " 11. 哪吒"
+    green " 12. 获取本机IP"
+    green " 13. docker"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
-        1 ) speedtest ;;
-        2 ) jcnf ;;
-        3 ) install_6.0 ;;
-        4 ) install ;;
-        5 ) status ;;   
-        6 ) menu ;;     
-        7 ) superbench ;;   
-        8 ) tcp ;;    
-        9 ) getip ;;   
-      10 ) baheyi ;;
-      11 ) liumeiti ;;
-      12 ) docker ;;
-      13 ) nezha ;;
+#网速测试
+        2 ) speedtest ;;
+#路由追踪
+        3 ) jcnf ;;
+#宝塔开心版
+        6 ) install_6.0 ;;
+#x-ui安装
+        7 ) install ;;
+#可乐
+        10 ) status ;; 
+#安装warp+  
+        5 ) menu ;;     
+#vps性能测试
+        1 ) superbench ;;  
+#开启bbr 
+        9 ) tcp ;;  
+#获取本机IP  
+        12 ) getip ;; 
+#八合一脚本  
+      8 ) baheyi ;;
+#流媒体检测
+      4 ) liumeiti ;;
+#docker
+      13 ) docker ;;
+#哪吒
+      11 ) nezha ;;
+#退出
         0 ) exit 1 ;;
     esac
 }
