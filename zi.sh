@@ -269,7 +269,7 @@ function start_menu(){
       14 ) youxuan ;;
 
 #回程检测
-      14 ) mtrtrace ;;
+      15 ) mtrtrace ;;
 #退出
         0 ) exit 1 ;;
     esac
