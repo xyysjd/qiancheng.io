@@ -204,6 +204,11 @@ function youxuan(){
 curl https://proxy.freecdn.workers.dev/?url=https://raw.githubusercontent.com/badafans/better-cloudflare-ip/master/shell/cf.sh -o cf.sh && chmod +x cf.sh && ./cf.sh
 }
 
+#回程检测
+function mtrtrace(){
+curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -229,6 +234,7 @@ function start_menu(){
     green " 12. 获取本机IP"
     green " 13. docker"
     green " 14. 优选ip"
+    green " 15. 回程检测"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -261,6 +267,9 @@ function start_menu(){
 
 #优选ip
       14 ) youxuan ;;
+
+#回程检测
+      14 ) mtrtrace ;;
 #退出
         0 ) exit 1 ;;
     esac
