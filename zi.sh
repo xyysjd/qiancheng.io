@@ -209,6 +209,11 @@ function mtrtrace(){
 curl https://raw.githubusercontent.com/zhucaidan/mtr_trace/main/mtr_trace.sh|bash
 }
 
+#ssh修改root登录
+function rootdl(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/root.sh -o root.sh && chmod +x root.sh && ./root.sh
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -235,6 +240,7 @@ function start_menu(){
     green " 13. docker"
     green " 14. 优选ip"
     green " 15. 回程检测"
+    green " 16. ssh修改root登录"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -270,6 +276,9 @@ function start_menu(){
 
 #回程检测
       15 ) mtrtrace ;;
+
+#ssh修改root登录
+      16 ) rootdl ;;
 #退出
         0 ) exit 1 ;;
     esac
