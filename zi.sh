@@ -1,6 +1,31 @@
 #自用脚本
 rm -rf zi.sh
 
+# 获取IP地址及其信息
+IP4=$(curl -s4m2 https://ip.gs/json)
+IP6=$(curl -s6m2 https://ip.gs/json)
+WAN4=$(expr "$IP4" : '.*ip\":\"\([^"]*\).*')
+WAN6=$(expr "$IP6" : '.*ip\":\"\([^"]*\).*')
+COUNTRY4=$(expr "$IP4" : '.*country\":\"\([^"]*\).*')
+COUNTRY6=$(expr "$IP6" : '.*country\":\"\([^"]*\).*')
+ASNORG4=$(expr "$IP4" : '.*asn_org\":\"\([^"]*\).*')
+ASNORG6=$(expr "$IP6" : '.*asn_org\":\"\([^"]*\).*')
+
+# 判断IP地址状态
+IP4="$WAN4 （$COUNTRY4 $ASNORG4）"
+IP6="$WAN6 （$COUNTRY6 $ASNORG6）"
+if [ -z $WAN4 ]; then
+	IP4="当前VPS未检测到IPv4地址"
+fi
+if [ -z $WAN6 ]; then
+	IP6="当前VPS未检测到IPv6地址"
+fi
+
+# 获取脚本运行次数
+COUNT=$(curl -sm2 "https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FMisaka-blog%2FMisakaLinuxToolbox%40master%2FMisakaToolbox.sh&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" 2>&1) &&
+TODAY=$(expr "$COUNT" : '.*\s\([0-9]\{1,\}\)\s/.*')
+TOTAL=$(expr "$COUNT" : '.*/\s\([0-9]\{1,\}\)\s.*')
+
 # 全局变量
 arch=`uname -m`
 virt=`systemd-detect-virt`
@@ -219,13 +244,15 @@ function start_menu(){
     clear 
     blue "===============----千城一键综合Linux脚本----==============="
     blue "================脚本最后更新时间2022年3月2日================"
-    red "===============-------大自然的搬运工-------==============="
-
+    red  "================-------大自然的搬运工-------================"
+    red  "==========今日运行次数：$TODAY 总共运行次数：$TOTAL=========="
     blue "检测到VPS信息如下"
     blue "处理器架构：$arch"
     blue "虚拟化架构：$virt"
     blue "操作系统：$release"
-    blue "内核版本：$kernelVer" 
+    blue "内核版本：$kernelVer"
+    blue "IPv4地址：$IP4"
+    blue "IPv6地址：$IP6"
     green " 1. vps性能测试"                  
     green " 2. 网速测试"
     green " 3. 路由追踪"
