@@ -217,9 +217,8 @@ curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/root.sh -o ro
 #主菜单
 function start_menu(){
     clear 
-    blue "===============----千城专用脚本 本人QQ1187330023----==============="
-    echo -e "从2022年起，本脚本已经运行${Red}$count${Font}次"
-    echo -e "脚本最后更新时间: ${Green}2022年3月2日${Font}\n"
+    blue "===============----千城一键综合Linux脚本----==============="
+    blue "================脚本最后更新时间2022年3月2日================"
     red "===============-------大自然的搬运工-------==============="
 
     blue "检测到VPS信息如下"
@@ -239,7 +238,7 @@ function start_menu(){
     green " 10. 可乐"
     green " 11. 哪吒"
     green " 12. 获取本机IP"
-    green " 13. docker"
+    green " 13. 安装docker"
     green " 14. 优选ip"
     green " 15. 回程检测"
     green " 16. ssh修改root登录"
