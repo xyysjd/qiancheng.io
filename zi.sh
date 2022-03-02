@@ -218,6 +218,8 @@ curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/root.sh -o ro
 function start_menu(){
     clear 
     blue "===============----千城专用脚本 本人QQ1187330023----==============="
+    echo -e "从2022年起，本脚本已经运行${Red}$count${Font}次"
+    echo -e "脚本最后更新时间: ${Green}2022年3月2日${Font}\n"
     red "===============-------大自然的搬运工-------==============="
 
     blue "检测到VPS信息如下"
