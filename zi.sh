@@ -239,6 +239,11 @@ function rootdl(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/root.sh -o root.sh && chmod +x root.sh && ./root.sh
 }
 
+#一键安装acme证书
+function acme(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/acme.sh -o acme.sh && chmod +x acme.sh && ./acme.sh
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -269,6 +274,7 @@ function start_menu(){
     green " 14. 优选ip"
     green " 15. 回程检测"
     green " 16. ssh修改root登录"
+    green " 17. 一键安装acme证书"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -307,6 +313,10 @@ function start_menu(){
 
 #ssh修改root登录
       16 ) rootdl ;;
+
+#一键安装acme证书
+      17 ) acme ;;
+
 #退出
         0 ) exit 1 ;;
     esac
