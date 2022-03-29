@@ -25,7 +25,6 @@ release="Centos"
 else 
 red "不支持你当前系统，请选择使用Ubuntu,Debian,Centos系统" && exit 1
 fi
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 [[ $(type -P yum) ]] && yumapt='yum -y' || yumapt='apt -y'
 [[ $(type -P curl) ]] || (yellow "检测到curl未安装，升级安装中" && $yumapt update;$yumapt install curl)
 
@@ -38,7 +37,6 @@ stty -raw
 stty echo
 stty $SAVEDSTTY
 }
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 back1(){
 white "------------------------------------------------------------------------------------------------"
 white " 回主菜单，请按任意键"
@@ -46,7 +44,6 @@ white " 退出脚本，请按Ctrl+C"
 get_char && bash acme.sh
 }
 
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 acmeinstall(){
 v6=$(curl -s6m3 https://ip.gs)
 v4=$(curl -s4m3 https://ip.gs)
@@ -104,7 +101,6 @@ if [[ $domainIP = $v6 ]]; then
 yellow "当前二级域名解析到的IPV6：$domainIP" && sleep 1
 bash /root/.acme.sh/acme.sh  --issue -d ${ym} --standalone -k ec-256 --server letsencrypt --listen-v6
 fi
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定…………，你懂的
 if [[ -n $(echo $domainIP | grep nginx) ]]; then
 yellow "域名解析无效，请检查二级域名是否填写正确或稍等几分钟等待解析完成再执行脚本"
 elif [[ -n $(echo $domainIP | grep ":") || -n $(echo $domainIP | grep ".") ]]; then
@@ -115,7 +111,6 @@ yellow "1、请确保Cloudflare小黄云关闭状态(仅限DNS)，其他域名�
 yellow "2、请检查域名解析网站设置的IP是否正确"
 fi
 fi
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 else
 green "经检测，当前为泛域名申请证书模式，目前脚本仅支持Cloudflare的DNS申请方式"
 readp "请复制Cloudflare的Global API Key:" GAK
@@ -147,13 +142,11 @@ green "/root/private.key"
 else
 red "遗憾，域名证书申请失败"
 yellow "建议一：更换下二级域名名称再尝试执行脚本（重要）"
-green "例：原二级域名 x.kkkyg.eu.org 或 x.kkkyg.cf ，在cloudflare中重命名其中的x名称，确定并生效"
+green "例：原二级域名 x.xxxx.eu.org 或 x.xxxx.cf ，在cloudflare中重命名其中的x名称，确定并生效"
 yellow "建议二：更换下当前本地网络IP环境，再尝试执行脚本"
-yellow "建议三：向甬哥提问 https://github.com/kkkyg/acme-script/issues"
 fi
 fi
 }
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 acme(){
 yellow "稍等3秒，检测IP环境中"
 wgcfv6=$(curl -s6m6 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
@@ -184,7 +177,6 @@ red "未找到你输入的${ym}域名证书，请自行核实！"
 back1
 fi
 }
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
 acmerenew(){
 [[ -z $(/root/.acme.sh/acme.sh -v 2>/dev/null) ]] && yellow "未安装acme.sh证书申请，无法执行" && back1
 bash /root/.acme.sh/acme.sh --list
@@ -237,4 +229,4 @@ case "$NumberInput" in
 esac
 }   
 start_menu "first" 
-#某些人又来抄了，就是你：Misaka，Misaka，Misaka，不写出处，此提醒永存。不讲武德的人今后注定不成事。
+
