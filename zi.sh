@@ -244,6 +244,23 @@ function acme(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/acme.sh -o acme.sh && chmod +x acme.sh && ./acme.sh
 }
 
+#一键开启VPS中所有的网络端口
+open_ports(){
+    systemctl stop firewalld.service
+    systemctl disable firewalld.service
+    setenforce 0
+    ufw disable
+    iptables -P INPUT ACCEPT
+    iptables -P FORWARD ACCEPT
+    iptables -P OUTPUT ACCEPT
+    iptables -t nat -F
+    iptables -t mangle -F 
+    iptables -F
+    iptables -X
+    netfilter-persistent save
+    yellow "VPS中的所有网络端口已开启"
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -275,6 +292,7 @@ function start_menu(){
     green " 15. 回程检测"
     green " 16. ssh修改root登录"
     green " 17. 一键安装acme证书"
+    green " 18. 一键开启VPS中所有的网络端口"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -317,6 +335,8 @@ function start_menu(){
 #一键安装acme证书
       17 ) acme ;;
 
+#一键开启VPS中所有的网络端口
+      18 ) open_ports ;;
 #退出
         0 ) exit 1 ;;
     esac
