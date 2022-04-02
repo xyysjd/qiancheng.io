@@ -1,5 +1,5 @@
 #自用脚本
-rm -rf zi.sh
+
 
 # 获取IP地址及其信息
 IP4=$(curl -s4m2 https://ip.gs/json)
@@ -239,12 +239,12 @@ function rootdl(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/root.sh -o root.sh && chmod +x root.sh && ./root.sh
 }
 
-#一键安装acme证书
+#安装acme证书
 function acme(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/acme.sh -o acme.sh && chmod +x acme.sh && ./acme.sh
 }
 
-#一键开启VPS中所有的网络端口
+#开启端口
 open_ports(){
     systemctl stop firewalld.service
     systemctl disable firewalld.service
@@ -275,25 +275,16 @@ function start_menu(){
     blue "内核版本：$kernelVer"
     blue "IPv4地址：$IP4"
     blue "IPv6地址：$IP6"
-    green " 1. vps性能测试"                  
-    green " 2. 网速测试"
-    green " 3. 路由追踪"
-    green " 4. 流媒体检测"
-    green " 5. 安装warp+"
-    green " 6. 宝塔开心版"
-    green " 7. x-ui安装"
-    green " 8. 八合一脚本"
-    green " 9. 开启bbr加速"
-    green " 10. 可乐"
-    green " 11. 哪吒"
-    green " 12. 获取本机IP"
-    green " 13. 安装docker"
-    green " 14. 优选ip"
-    green " 15. 回程检测"
-    green " 16. ssh修改root登录"
-    green " 17. 一键安装acme证书"
-    green " 18. 一键开启VPS中所有的网络端口"
-    green " 0. 退出脚本"
+    green " 1. vps性能测试            2. 网速测试"                  
+    green " 3. 路由追踪               4. 流媒体检测"
+    green " 5. 安装warp+              6. 宝塔开心版"
+    green " 7. x-ui安装               8. 八合一脚本"
+    green " 9. 开启bbr加速           10. 可乐"
+    green " 11. 哪吒                 12. 获取本机IP  "
+    green " 13. 安装docker           14. 优选ip"
+    green " 15. 回程检测             16. ssh修改root登录"
+    green " 17. 安装acme证书         18. 开启端口"
+     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
 #网速测试
@@ -332,10 +323,10 @@ function start_menu(){
 #ssh修改root登录
       16 ) rootdl ;;
 
-#一键安装acme证书
+#安装acme证书
       17 ) acme ;;
 
-#一键开启VPS中所有的网络端口
+#开启端口
       18 ) open_ports ;;
 #退出
         0 ) exit 1 ;;
