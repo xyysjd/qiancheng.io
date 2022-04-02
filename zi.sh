@@ -1,6 +1,6 @@
 #自用脚本
 
-
+rm -rf zi.sh
 # 获取IP地址及其信息
 IP4=$(curl -s4m2 https://ip.gs/json)
 IP6=$(curl -s6m2 https://ip.gs/json)
