@@ -244,6 +244,11 @@ function acme(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/acme.sh -o acme.sh && chmod +x acme.sh && ./acme.sh
 }
 
+#开启swap
+function swap(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/swap.sh -o swap.sh && chmod +x swap.sh && ./swap.sh
+}
+
 #开启端口
 open_ports(){
     systemctl stop firewalld.service
@@ -284,6 +289,8 @@ function start_menu(){
     green " 13. 安装docker           14. 优选ip"
     green " 15. 回程检测             16. ssh修改root登录"
     green " 17. 安装acme证书         18. 开启端口"
+    green " 19. 开启swap
+
      green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -328,6 +335,10 @@ function start_menu(){
 
 #开启端口
       18 ) open_ports ;;
+
+#开启swap
+      19 ) swap ;;
+
 #退出
         0 ) exit 1 ;;
     esac
