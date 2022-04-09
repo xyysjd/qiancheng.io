@@ -289,8 +289,7 @@ function start_menu(){
     green " 13. 安装docker           14. 优选ip"
     green " 15. 回程检测             16. ssh修改root登录"
     green " 17. 安装acme证书         18. 开启端口"
-    green " 19. 开启swap
-
+    green " 19. 开启swap"
      green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
