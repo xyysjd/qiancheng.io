@@ -344,7 +344,7 @@ function start_menu(){
       19 ) swap ;;
 
 #screen
-      19 ) screen ;;
+      20 ) screen ;;
 
 #退出
         0 ) exit 1 ;;
