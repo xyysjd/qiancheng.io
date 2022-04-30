@@ -254,6 +254,11 @@ function screen(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/screen.sh -o screen.sh && chmod +x screen.sh && ./screen.sh
 }
 
+#neko优化
+function neko(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/tools.sh -o tools.sh && chmod +x tools.sh && ./tools.sh
+}
+
 #开启端口
 open_ports(){
     systemctl stop firewalld.service
@@ -295,6 +300,7 @@ function start_menu(){
     green " 15. 回程检测             16. ssh修改root登录"
     green " 17. 安装acme证书         18. 开启端口"
     green " 19. 开启swap             20. screen"
+    green " 21. neko优化"
       green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -345,6 +351,9 @@ function start_menu(){
 
 #screen
       20 ) screen ;;
+
+#screen
+      21 ) neko ;;
 
 #退出
         0 ) exit 1 ;;
