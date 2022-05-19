@@ -322,7 +322,7 @@ function start_menu(){
     green " 15. 回程检测             16. ssh修改root登录"
     green " 17. 安装acme证书         18. 开启端口"
     green " 19. 开启swap             20. screen"
-    green " 21. neko优化             22更换语言为中文"
+    green " 21. neko优化             22.更换语言为中文"
       green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
