@@ -259,6 +259,28 @@ function neko(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/tools.sh -o tools.sh && chmod +x tools.sh && ./tools.sh
 }
 
+#更换语言为中文
+function zhongwen(){
+	chattr -i /etc/locale.gen
+	cat > '/etc/locale.gen' << EOF
+zh_CN.UTF-8 UTF-8
+zh_TW.UTF-8 UTF-8
+en_US.UTF-8 UTF-8
+ja_JP.UTF-8 UTF-8
+EOF
+	locale-gen
+	update-locale
+	chattr -i /etc/default/locale
+	cat > '/etc/default/locale' << EOF
+LANGUAGE="zh_CN.UTF-8"
+LANG="zh_CN.UTF-8"
+LC_ALL="zh_CN.UTF-8"
+EOF
+	export LANGUAGE="zh_CN.UTF-8"
+	export LANG="zh_CN.UTF-8"
+	export LC_ALL="zh_CN.UTF-8"
+}
+
 #开启端口
 open_ports(){
     systemctl stop firewalld.service
@@ -300,7 +322,7 @@ function start_menu(){
     green " 15. 回程检测             16. ssh修改root登录"
     green " 17. 安装acme证书         18. 开启端口"
     green " 19. 开启swap             20. screen"
-    green " 21. neko优化"
+    green " 21. neko优化             22更换语言为中文"
       green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -354,6 +376,9 @@ function start_menu(){
 
 #screen
       21 ) neko ;;
+
+#更换语言为中文
+      22 ) zhongwen ;;
 
 #退出
         0 ) exit 1 ;;
