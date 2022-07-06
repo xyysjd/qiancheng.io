@@ -163,11 +163,11 @@ bash /root/status.sh
 
 #安装warp+
 function menu(){
-wget -O "/root/misakawarp.sh" "https://raw.githubusercontents.com/Misaka-blog/Misaka-WARP-Script/master/misakawarp.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/misakawarp.sh"
-chmod 777 "/root/misakawarp.sh"
+wget -O "/root/menu.sh" "https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh" --no-check-certificate -T 30 -t 5 -d
+chmod +x "/root/menu.sh"
+chmod 777 "/root/menu.sh"
 blue "下载完成"
-bash /root/misakawarp.sh
+bash /root/menu.sh
 }
 
 #vps性能测试
