@@ -118,7 +118,7 @@ function oraclefirewall(){
 
 #网速测试
 function speedtest(){
-wget -O "/root/speedtest.sh" "https://raw.githubusercontent.com/ernisn/superspeed/master/superspeed.sh" --no-check-certificate -T 30 -t 5 -d
+wget -O "/root/superspeed.sh" "https://raw.githubusercontent.com/ernisn/superspeed/master/superspeed.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/superspeed.sh"
 chmod 777 "/root/superspeed.sh"
 blue "下载完成"
