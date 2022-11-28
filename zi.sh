@@ -259,6 +259,11 @@ function neko(){
 curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/tools.sh -o tools.sh && chmod +x tools.sh && ./tools.sh
 }
 
+#XrayR
+function XrayR(){
+bash <(curl -Ls https://raw.githubusercontent.com/XrayR-project/XrayR-release/master/install.sh)
+}
+
 #更换语言为中文
 function zhongwen(){
 	chattr -i /etc/locale.gen
@@ -323,7 +328,7 @@ function start_menu(){
     green " 17. 安装acme证书         18. 开启端口"
     green " 19. 开启swap             20. screen"
     green " 21. neko优化             22.更换语言为中文"
-      green " 0. 退出脚本"
+    green " 23. XrayR                0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
 #网速测试
@@ -379,6 +384,9 @@ function start_menu(){
 
 #更换语言为中文
       22 ) zhongwen ;;
+
+#XrayR
+      23 ) XrayR ;;
 
 #退出
         0 ) exit 1 ;;
