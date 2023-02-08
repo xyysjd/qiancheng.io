@@ -37,6 +37,7 @@ fi
 # 检查Docker是否安装成功
 if [ "$(docker version 2>&1 >/dev/null)" ]; then
     echo "Docker installed successfully!"
+    echo "Docker version: $(docker version --format '{{.Server.Version}}')"
 else
     echo "Error: Failed to install Docker."
     exit 1
