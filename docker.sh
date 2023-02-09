@@ -13,11 +13,14 @@ else
     exit 1
 fi
 
-# 安装或卸载的选项
-OPTION=$1
+# 菜单选项
+echo "1. Install Docker"
+echo "2. Uninstall Docker"
+echo "0. Exit"
+read -p "Enter your choice (1/2/0): " CHOICE
 
 # 安装Docker的步骤
-if [ "$OPTION" == "install" ]; then
+if [ "$CHOICE" == "1" ]; then
     if [ "$OS" == "ubuntu" ]; then
         # Ubuntu或Debian
         sudo apt-get update
@@ -45,7 +48,7 @@ if [ "$OPTION" == "install" ]; then
         echo "Error: Failed to install Docker."
         exit 1
     fi
-elif [ "$OPTION" == "uninstall" ]; then
+elif [ "$CHOICE" == "2" ]; then
     if [ "$OS" == "ubuntu" ]; then
         # Ubuntu或Debian
         sudo systemctl stop docker
@@ -57,7 +60,9 @@ elif [ "$OPTION" == "uninstall" ]; then
         sudo yum remove -y docker-ce docker-ce-cli containerd.io
     fi
     echo "Docker uninstalled successfully!"
+elif [ "$CHOICE" == "0" ]; then
+    exit 0
 else
-    echo "Error: Invalid option. Usage: $0 [install|uninstall]"
+    echo "Error: Invalid option."
     exit 1
 fi
