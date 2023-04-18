@@ -116,13 +116,9 @@ function oraclefirewall(){
     fi
 }
 
-#网速测试
+#秋水网速测试
 function speedtest(){
-wget -O "/root/superspeed.sh" "https://raw.githubusercontent.com/uxh/superspeed/master/superspeed.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/superspeed.sh"
-chmod 777 "/root/superspeed.sh"
-blue "下载完成"
-bash /root/superspeed.sh
+wget -qO- bench.sh | bash
 }
 
 #路由追踪
@@ -317,7 +313,7 @@ function start_menu(){
     blue "内核版本：$kernelVer"
     blue "IPv4地址：$IP4"
     blue "IPv6地址：$IP6"
-    green " 1. vps性能测试            2. 网速测试"                  
+    green " 1. vps性能测试            2. 秋水网速测试"                  
     green " 3. 路由追踪               4. 流媒体检测"
     green " 5. 安装warp+              6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
@@ -331,7 +327,7 @@ function start_menu(){
     green " 23. XrayR                0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
-#网速测试
+#秋水网速测试
         2 ) speedtest ;;
 #路由追踪
         3 ) jcnf ;;
