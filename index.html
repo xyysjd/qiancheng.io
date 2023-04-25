@@ -15,7 +15,7 @@ body
 <H1>脚本</H1>
 <DL><p>
      <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">vpn平常使用的命令  清屏reset   网络ifconfig 拉取单个文件curl -L -O 脚本后台运行nohup 脚本名 &</H2>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">tmux多路后台会话功能 安装apt install -y tmux 创建一个会话进入tmux new -u -s 想要的名字 退出会话不中断 Crl+b然后d 重新进入会话tmux attach-session -t 自己取的名字 查看所有tmux会话tmux list-sessions 删除会话tmux kill-session -t 自己取的名字 &</H2>
+     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">tmux多路后台会话功能 安装apt install -y tmux 创建一个会话进入tmux -u new-session -s 想要的名字 退出会话不中断 Crl+b然后d 重新进入会话tmux attach-session -t 自己取的名字 查看所有tmux会话tmux list-sessions 删除会话tmux kill-session -t 自己取的名字 &</H2>
      <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">更新系统环境sudo apt-get update -y && sudo apt-get upgrade -y安装必备工具apt install -y curl wget sudo nodejs git</H3>
      <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">卸载软件包 apt-get remove 包名 卸载软件 apt-get purge 包名 卸载软件和配置文件 apt-get autoremove 移除没有使用的依赖</H3>
      <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">自用脚本wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/zi.sh && bash zi.sh</H3>
