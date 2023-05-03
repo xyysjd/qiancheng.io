@@ -1,6 +1,6 @@
 #自用脚本
 
-rm -rf zi.sh
+
 # 获取IP地址及其信息
 IP4=$(curl -s4m2 https://ip.gs/json)
 IP6=$(curl -s6m2 https://ip.gs/json)
@@ -148,13 +148,9 @@ blue "下载完成"
 bash /root/install.sh
 }
 
-#可乐
-function status(){
-wget -O "/root/status.sh" "https://raw.githubusercontent.com/cokemine/ServerStatus-Hotaru/master/status.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/status.sh"
-chmod 777 "/root/status.sh"
-blue "下载完成"
-bash /root/status.sh
+#编译python3
+function python3(){
+wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/python.sh && bash python.sh
 }
 
 #安装warp+
@@ -175,20 +171,13 @@ blue "下载完成"
 bash /root/superbench.sh
 }
 
-#开启bbr
+#开启bbr加速
 function tcp(){
 wget -O "/root/tcp.sh" "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/tcp.sh"
 chmod 777 "/root/tcp.sh"
 blue "下载完成"
 bash /root/tcp.sh
-}
-
-#获取本机IP
-function getip(){
-echo  
-curl ip.p3terx.com
-echo
 }
 
 #八合一脚本
@@ -220,10 +209,6 @@ function nezha(){
 curl -L https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh -o nezha.sh && chmod +x nezha.sh && ./nezha.sh
 }
 
-#优选ip
-function youxuan(){
-curl https://proxy.freecdn.workers.dev/?url=https://raw.githubusercontent.com/badafans/better-cloudflare-ip/master/shell/cf.sh -o cf.sh && chmod +x cf.sh && ./cf.sh
-}
 
 #回程检测
 function mtrtrace(){
@@ -317,14 +302,13 @@ function start_menu(){
     green " 3. 路由追踪               4. 流媒体检测"
     green " 5. 安装warp+              6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
-    green " 9. 开启bbr加速           10. 可乐"
-    green " 11. 哪吒                 12. 获取本机IP  "
-    green " 13. 安装docker           14. 优选ip"
-    green " 15. 回程检测             16. ssh修改root登录"
-    green " 17. 安装acme证书         18. 开启端口"
-    green " 19. 开启swap             20. screen"
-    green " 21. neko优化             22.更换语言为中文"
-    green " 23. XrayR                0. 退出脚本"
+    green " 9. 开启bbr加速           10. 哪吒"
+    green " 11. 安装docker           12. python3"
+    green " 13. 回程检测             14. ssh修改root登录"
+    green " 15. 安装acme证书         16. 开启端口"
+    green " 17. 开启swap             18. screen"
+    green " 19. neko优化             20.更换语言为中文"
+    green " 21. XrayR                0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
 #秋水网速测试
@@ -335,54 +319,48 @@ function start_menu(){
         6 ) install_6.0 ;;
 #x-ui安装
         7 ) install ;;
-#可乐
-        10 ) status ;; 
+#python3
+        12 ) python3 ;; 
 #安装warp+  
         5 ) menu ;;     
 #vps性能测试
         1 ) superbench ;;  
 #开启bbr 
         9 ) tcp ;;  
-#获取本机IP  
-        12 ) getip ;; 
 #八合一脚本  
       8 ) baheyi ;;
 #流媒体检测
       4 ) liumeiti ;;
 #docker
-      13 ) docker ;;
+      11 ) docker ;;
 #哪吒
-      11 ) nezha ;;
-
-#优选ip
-      14 ) youxuan ;;
-
+      10 ) nezha ;;
 #回程检测
-      15 ) mtrtrace ;;
+      13 ) mtrtrace ;;
 
 #ssh修改root登录
-      16 ) rootdl ;;
+      14 ) rootdl ;;
 
 #安装acme证书
-      17 ) acme ;;
+      15 ) acme ;;
 
 #开启端口
-      18 ) open_ports ;;
+      16 ) open_ports ;;
 
 #开启swap
-      19 ) swap ;;
+      17 ) swap ;;
 
 #screen
-      20 ) screen ;;
+      18 ) screen ;;
 
-#screen
-      21 ) neko ;;
+#neko优化
+      19 ) neko ;;
 
 #更换语言为中文
-      22 ) zhongwen ;;
+      20 ) zhongwen ;;
 
 #XrayR
-      23 ) XrayR ;;
+      21 ) XrayR ;;
 
 #退出
         0 ) exit 1 ;;
