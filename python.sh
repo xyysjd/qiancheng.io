@@ -2,7 +2,7 @@
 
 # 安装依赖包
 sudo apt-get update
-sudo apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget -y
+sudo apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget -y
 
 # 下载Python源码包
 wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
