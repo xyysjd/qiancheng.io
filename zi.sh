@@ -200,8 +200,7 @@ bash /root/liumeiti.sh
 
 #docker
 function docker(){
-wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/docker.sh
-bash docker.sh
+wget -qO- get.docker.com | bash
 }
 
 #哪吒
