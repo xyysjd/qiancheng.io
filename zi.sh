@@ -132,7 +132,7 @@ bash /root/jcnf.sh
 
 #宝塔开心版
 function install_6.0(){
-wget -O "/root/install_6.0.sh" "http://v7.hostcli.com/install/install_6.0.sh" --no-check-certificate -T 30 -t 5 -d
+wget -O "/root/install_6.0.sh" "http://www.btkaixin.net/install/install_6.0.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/install_6.0.sh"
 chmod 777 "/root/install_6.0.sh"
 blue "下载完成"
