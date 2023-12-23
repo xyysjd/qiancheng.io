@@ -153,13 +153,13 @@ function python3(){
 wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/python.sh && bash python.sh
 }
 
-#安装warp+
-function menu(){
-wget -O "/root/menu.sh" "https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/menu.sh"
-chmod 777 "/root/menu.sh"
+#warp-go
+function warp-go(){
+wget -O "/root/warp-go.sh" "https://gitlab.com/fscarmen/warp/-/raw/main/warp-go.sh" --no-check-certificate -T 30 -t 5 -d
+chmod +x "/root/warp-go.sh"
+chmod 777 "/root/warp-go.sh"
 blue "下载完成"
-bash /root/menu.sh
+bash /root/warp-go.sh [option] [lisence]
 }
 
 #vps性能测试
@@ -299,7 +299,7 @@ function start_menu(){
     blue "IPv6地址：$IP6"
     green " 1. vps性能测试            2. 秋水网速测试"                  
     green " 3. 路由追踪               4. 流媒体检测"
-    green " 5. 安装warp+              6. 宝塔开心版"
+    green " 5. 安装warp-go              6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
     green " 9. 开启bbr加速           10. 哪吒"
     green " 11. 安装docker           12. python3"
@@ -320,8 +320,8 @@ function start_menu(){
         7 ) install ;;
 #python3
         12 ) python3 ;; 
-#安装warp+  
-        5 ) menu ;;     
+#安装warp-go  
+        5 ) warp-go ;;     
 #vps性能测试
         1 ) superbench ;;  
 #开启bbr 
