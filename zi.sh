@@ -155,7 +155,7 @@ wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qianchen
 
 #安装warp+
 function menu(){
-wget -O "/root/menu.sh" "https://raw.githubusercontent.com/fscarmen/warp/main/menu.sh" --no-check-certificate -T 30 -t 5 -d
+wget -O "/root/menu.sh" "https://gitlab.com/fscarmen/warp/-/raw/main/menu.sh" --no-check-certificate -T 30 -t 5 -d
 chmod +x "/root/menu.sh"
 chmod 777 "/root/menu.sh"
 blue "下载完成"
