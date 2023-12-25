@@ -283,6 +283,18 @@ open_ports(){
     yellow "VPS中的所有网络端口已开启"
 }
 
+#清理垃圾
+function qllj(){
+apt autoremove --purge -y
+apt clean -y
+apt autoclean -y
+apt remove --purge $(dpkg -l | awk '/^rc/ {print $2}') -y
+journalctl --rotate
+journalctl --vacuum-time=1s
+journalctl --vacuum-size=5M
+apt remove --purge $(dpkg -l | awk '/^ii linux-(image|headers)-[^ ]+/{print $2}' | grep -v $(uname -r | sed 's/-.*//') | xargs) -y
+}
+
 #主菜单
 function start_menu(){
     clear 
@@ -307,7 +319,8 @@ function start_menu(){
     green " 15. 安装acme证书         16. 开启端口"
     green " 17. 开启swap             18. screen"
     green " 19. neko优化             20.更换语言为中文"
-    green " 21. XrayR                0. 退出脚本"
+    green " 21. XrayR                22. 清理垃圾"
+    green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
 #秋水网速测试
@@ -360,6 +373,9 @@ function start_menu(){
 
 #XrayR
       21 ) XrayR ;;
+
+#清理垃圾
+      22 ) qllj ;;
 
 #退出
         0 ) exit 1 ;;
