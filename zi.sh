@@ -284,15 +284,15 @@ open_ports(){
 }
 
 #清理垃圾
-function qllj(){
-apt autoremove --purge -y
-apt clean -y
-apt autoclean -y
-apt remove --purge $(dpkg -l | awk '/^rc/ {print $2}') -y
-journalctl --rotate
-journalctl --vacuum-time=1s
-journalctl --vacuum-size=5M
-apt remove --purge $(dpkg -l | awk '/^ii linux-(image|headers)-[^ ]+/{print $2}' | grep -v $(uname -r | sed 's/-.*//') | xargs) -y
+    function qllj(){
+    apt autoremove --purge -y
+    apt clean -y
+    apt autoclean -y
+    apt remove --purge $(dpkg -l | awk '/^rc/ {print $2}') -y
+    journalctl --rotate
+    journalctl --vacuum-time=1s
+    journalctl --vacuum-size=5M
+    apt remove --purge $(dpkg -l | awk '/^ii linux-(image|headers)-[^ ]+/{print $2}' | grep -v $(uname -r | sed 's/-.*//') | xargs) -y
 }
 
 #主菜单
