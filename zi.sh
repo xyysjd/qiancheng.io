@@ -284,7 +284,7 @@ open_ports(){
 }
 
 #清理垃圾
-    function qllj(){
+function qllj(){
     apt autoremove --purge -y
     apt clean -y
     apt autoclean -y
