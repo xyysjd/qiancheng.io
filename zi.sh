@@ -311,7 +311,7 @@ function start_menu(){
     blue "IPv6地址：$IP6"
     green " 1. vps性能测试            2. 秋水网速测试"                  
     green " 3. 路由追踪               4. 流媒体检测"
-    green " 5. 安装warp-go              6. 宝塔开心版"
+    green " 5. 安装warp-go            6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
     green " 9. 开启bbr加速           10. 哪吒"
     green " 11. 安装docker           12. python3"
