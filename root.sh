@@ -1,53 +1,42 @@
 #!/bin/bash
 
-REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "alpine")
-RELEASE=("Debian" "Ubuntu" "CentOS" "CentOS" "Alpine")
-PACKAGE_UPDATE=("apt -y update" "apt -y update" "yum -y update" "yum -y update" "apk update -f")
-PACKAGE_INSTALL=("apt -y install" "apt -y install" "yum -y install" "yum -y install" "apk add -f")
-CMD=("$(grep -i pretty_name /etc/os-release 2>/dev/null | cut -d \" -f2)" "$(hostnamectl 2>/dev/null | grep -i system | cut -d : -f2)" "$(lsb_release -sd 2>/dev/null)" "$(grep -i description /etc/lsb-release 2>/dev/null | cut -d \" -f2)" "$(grep . /etc/redhat-release 2>/dev/null)" "$(grep . /etc/issue 2>/dev/null | cut -d \\ -f1 | sed '/^[ ]*$/d')")
-
-green(){
-    echo -e "\033[32m\033[01m$1\033[0m"
+# 函数：修改 SSH 端口
+change_ssh_port() {
+    read -p "请输入新的 SSH 端口号: " new_port
+    sudo sed -i "s/^#\?Port .*/Port $new_port/" /etc/ssh/sshd_config
+    sudo systemctl restart sshd
+    echo "SSH端口号已修改为 $new_port，并已重启SSH服务。"
 }
 
-red(){
-    echo -e "\033[31m\033[01m$1\033[0m"
+# 函数：修改 root 密码并允许 root 密码登录
+change_root_password() {
+    read -p "设置root密码: " password
+    echo root:$password | sudo chpasswd root
+    sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
+    sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
+    sudo systemctl restart sshd
+    echo "VPS用户名：root"
+    echo "VPS密码：$password"
+    echo "请妥善保存好登录信息！然后重启VPS确保设置已保存！"
 }
 
-yellow(){
-    echo -e "\033[33m\033[01m$1\033[0m"
+# 主菜单
+main_menu() {
+    clear
+    echo "============================="
+    echo "  VPS设置脚本  "
+    echo "============================="
+    echo "1. 修改SSH端口"
+    echo "2. 修改root密码并允许root登录"
+    echo "3. 退出"
+    read -p "请选择要执行的操作 [1-3]: " choice
+    case $choice in
+        1) change_ssh_port ;;
+        2) change_root_password ;;
+        3) echo "退出脚本" && exit ;;
+        *) echo "无效选项，请重新选择" && main_menu ;;
+    esac
 }
 
-for i in "${CMD[@]}"; do
-	SYS="$i" && [[ -n $SYS ]] && echo $SYS && break
-done
-
-for ((int=0; int<${#REGEX[@]}; int++)); do
-	[[ $(echo "$SYS" | tr '[:upper:]' '[:lower:]') =~ ${REGEX[int]} ]] && SYSTEM="${RELEASE[int]}" && [[ -n $SYSTEM ]] && break
-done
-
-[[ -z $SYSTEM ]] && red "不支持VPS的当前系统，请使用主流操作系统" && exit 1
-
-sudo lsattr /etc/passwd /etc/shadow >/dev/null 2>&1
-sudo chattr -i /etc/passwd /etc/shadow >/dev/null 2>&1
-sudo chattr -a /etc/passwd /etc/shadow >/dev/null 2>&1
-sudo lsattr /etc/passwd /etc/shadow >/dev/null 2>&1
-
-clear
-red "=================================="
-echo "                           "
-red "    VPS一键修改root密码登录脚本     "
-red "          by 千城           "
-echo "                           "
-red "=================================="
-echo "                           "
-red "=================================="
-echo "                           "
-read -p "设置root密码:" password
-echo root:$password | sudo chpasswd root
-sudo sed -i 's/^#\?PermitRootLogin.*/PermitRootLogin yes/g' /etc/ssh/sshd_config;
-sudo sed -i 's/^#\?PasswordAuthentication.*/PasswordAuthentication yes/g' /etc/ssh/sshd_config;
-sudo service sshd restart
-green "VPS用户名：root"
-green "vps密码：$password"
-echo "请妥善保存好登录信息！然后重启VPS确保设置已保存！"
+# 执行主菜单
+main_menu
