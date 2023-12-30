@@ -162,13 +162,9 @@ blue "下载完成"
 bash /root/warp-go.sh [option] [lisence]
 }
 
-#vps性能测试
+#融合怪
 function superbench(){
-wget -O "/root/superbench.sh" "https://raw.githubusercontent.com/qd201211/Linux-SpeedTest/master/superbench.sh" --no-check-certificate -T 30 -t 5 -d
-chmod +x "/root/superbench.sh"
-chmod 777 "/root/superbench.sh"
-blue "下载完成"
-bash /root/superbench.sh
+curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
 }
 
 #开启bbr加速
@@ -309,7 +305,7 @@ function start_menu(){
     blue "内核版本：$kernelVer"
     blue "IPv4地址：$IP4"
     blue "IPv6地址：$IP6"
-    green " 1. vps性能测试            2. 秋水网速测试"                  
+    green " 1. 融合怪            2. 秋水网速测试"                  
     green " 3. 路由追踪               4. 流媒体检测"
     green " 5. 安装warp-go            6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
@@ -335,7 +331,7 @@ function start_menu(){
         12 ) python3 ;; 
 #安装warp-go  
         5 ) warp-go ;;     
-#vps性能测试
+#融合怪
         1 ) superbench ;;  
 #开启bbr 
         9 ) tcp ;;  
