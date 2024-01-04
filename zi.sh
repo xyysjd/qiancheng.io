@@ -169,7 +169,7 @@ curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x
 
 #开启bbr加速
 function tcp(){
-curl -L https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh -o tcp.sh && chmod +x tcp.sh && bash tcp.sh
+wget -O tcp.sh "https://git.io/coolspeeda" && chmod +x tcp.sh && ./tcp.sh
 }
 
 #八合一脚本
