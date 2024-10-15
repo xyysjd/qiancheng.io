@@ -1,41 +1,177 @@
-<style>
-body
-{
-	background-image:url('https://static.runoob.com/images/mix/gradient2.png');
-	background-repeat:repeat-x;
-}
-</style>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脚本</title>
+    <style>
+        body {
+            background-image: url('https://static.runoob.com/images/mix/gradient2.png');
+            background-repeat: repeat-x;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 20px;
+        }
+        .container {
+            display: flex;               /* 使用 flexbox */
+            flex-wrap: wrap;            /* 允许换行 */
+            gap: 20px;                  /* 列间距 */
+        }
+        details {
+            margin-bottom: 10px;        /* 为每个折叠区域添加间隔 */
+            padding: 10px;
+            border: 1px solid #ccc;     /* 为折叠区域添加边框 */
+            border-radius: 5px;         /* 添加圆角 */
+            background-color: #fff;     /* 背景颜色 */
+            flex: 1 1 calc(33.333% - 20px); /* 设置宽度为三列 */
+            box-sizing: border-box;     /* 包含边框和内边距 */
+        }
+        summary {
+            cursor: pointer;             /* 鼠标悬停时显示为可点击 */
+            font-weight: bold;           /* 使标题加粗 */
+        }
+    </style>
+</head>
+<body>
+    <h1>脚本</h1>
+    <div class="container">
+
+        <details>
+            <summary>ctrl+z挂起进程后fg命令可以恢复</summary>
+            <!-- 这里可以添加更多说明或示例 -->
+        </details>
+
+        <details>
+            <summary>vpn平常使用的命令</summary>
+            <p>清屏: <code>reset</code></p>
+            <p>网络: <code>ifconfig</code></p>
+            <p>拉取单个文件: <code>curl -L -O</code></p>
+            <p>知道域名下的所有IP: <code>nslookup 你的域名</code></p>
+            <p>恢复ls命令: <code>unalias ls</code></p>
+        </details>
+
+        <details>
+            <summary>tmux多路后台会话功能</summary>
+            <p>安装: <code>apt install -y tmux</code></p>
+            <p>创建一个会话: <code>tmux new-session -s 想要的名字</code></p>
+            <p>退出会话不中断: <code>Ctrl+b 然后 d</code></p>
+            <p>重新进入会话: <code>tmux attach-session -t 自己取的名字</code></p>
+            <p>查看所有tmux会话: <code>tmux list-sessions</code></p>
+            <p>删除会话: <code>tmux kill-session -t 自己取的名字</code></p>
+        </details>
+
+        <details>
+            <summary>更新系统环境</summary>
+            <p><code>apt update -y && apt upgrade -y</code></p>
+            <p>安装必备工具: <code>apt install -y curl wget sudo nodejs git</code></p>
+        </details>
+
+        <details>
+            <summary>卸载软件包</summary>
+            <p>卸载软件: <code>apt-get remove 包名</code></p>
+            <p>卸载软件和配置文件: <code>apt-get purge 包名</code></p>
+            <p>移除没有使用的依赖: <code>apt-get autoremove</code></p>
+        </details>
+
+        <details>
+            <summary>自用脚本</summary>
+            <p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/zi.sh && bash zi.sh</code></p>
+        </details>
+
+        <details>
+            <summary>xui魔改</summary>
+            <p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjdN/x-ui/main/install.sh && bash install.sh</code></p>
+        </details>
+
+        <details>
+            <summary>编辑hosts文件</summary>
+            <p><code>vi /etc/hosts</code> 在最后面添加 <code>127.0.0.1 www.baidu.com</code>，保存退出即可屏蔽百度。</p>
+        </details>
+
+        <details>
+            <summary>修改DNS</summary>
+            <p><code>vi /etc/resolv.conf</code> 添加 <code>nameserver 8.8.8.8</code>，保存退出即可修改默认的DNS。</p>
+        </details>
+
+        <details>
+            <summary>修改DNS脚本</summary>
+            <p><code>wget https://gitee.com/qiancheng666/dns/raw/master/dns.sh && bash dns.sh</code></p>
+        </details>
+
+        <details>
+            <summary>去除Shell脚本的\r字符</summary>
+            <p><code>sed -i 's/\r//' 脚本名</code></p>
+            <p>搜索文件命令: <code>find / -name 文件名</code></p>
+            <p>查看log日志: <code>tail -f 文件名</code></p>
+        </details>
+
+        <details>
+            <summary>权限命令</summary>
+            <p><code>chmod +x 脚本名</code></p>
+            <p>创建文件夹命令: <code>mkdir 文件名</code></p>
+        </details>
+
+        <details>
+            <summary>压缩与解压</summary>
+            <p>压缩: <code>tar -zcvf 压缩名.tar.gz 被压缩文件</code></p>
+            <p>解压: <code>tar -zxvf 解压文件名.tar.gz</code></p>
+        </details>
+
+        <details>
+            <summary>启动程序</summary>
+            <p>启动程序: <code>systemctl start 程序名</code></p>
+            <p>重启程序: <code>systemctl reload 程序名</code></p>
+            <p>查看运行状态: <code>systemctl status 程序名</code></p>
+            <p>设置为开机自启: <code>systemctl enable 程序名</code></p>
+            <p>停止程序: <code>systemctl stop 程序名</code></p>
+        </details>
+
+        <details>
+            <summary>流量工具</summary>
+            <p><code>nethogs</code> --- 交互式命令</p>
+            <p>- <code>-m</code>: 修改单位</p>
+            <p>- <code>-r</code>: 按流量排序</p>
+            <p>- <code>-s</code>: 按发送流量排序</p>
+            <p>- <code>-q</code>: 退出命令提示符</p>
+        </details>
+
+        <details>
+            <summary>进入容器命令</summary>
+            <p><code>docker exec -it 容器名 /bin/bash</code></p>
+            <p>退出容器: <code>Ctrl-D</code></p>
+            <p>查看容器位置: <code>docker inspect 容器名 --format='{{.GraphDriver.Data.MergedDir}}'</code></p>
+            <p>查看当前路径: <code>pwd</code></p>
+            <p>清除日志: <code>echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</code></p>
+        </details>
+
+        <details>
+            <summary>查看端口占用命令</summary>
+            <p><code>lsof -i:端口号</code> 或者使用 <code>netstat -tnlp</code></p>
+            <p>查看单独应用线程: <code>ps -aux | grep 应用名字</code></p>
+            <p>查看cpu线程占用命令: <code>top</code> 和 <code>ps aux --sort=-pcpu | head -10</code> 或者 <code>pstree -up</code></p>
+            <p>杀死线程命令: 如果你的线程ID是 <code>5645646</code>，那么可以执行：<code>kill -9 5645646</code></p>
+            <p>查看硬盘占用命令: <code>du -h --max-depth=1 /</code></p>
+        </details>
+
+        <details>
+            <summary>关闭端口转发</summary>
+            <p><code>bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/gost2.sh') stop 端口</code></p>
+        </details>
+
+        <details>
+            <summary>使用API获取网站favicon</summary>
+            <p>Google的API: <code>https://www.google.com/s2/favicons?domain=要获取的域名</code></p>
+            <p>The Favicon Finder 的 API: <code>https://besticon-demo.herokuapp.com/icon?url=google.com&size=80..120..200</code></p>
+        </details>
+
+        <details>
+            <summary>链接</summary>
+            <p><a href="https://keesenz.com/2022/1833.html">青龙修复命令</a></p>
+            <p><a href="反代.txt">宝塔反代</a></p>
+            <p><a href="https://blog.csdn.net/weixin_44162809/article/details/117705055">宝塔跳过手机号</a></p>
+            <p><a href="https://blog.csdn.net/qq_32447301/article/details/79387649/">Docker删除容器与镜像</a></p>
+            <p><a href="https://blog.csdn.net/EasternUnbeaten/article/details/80463837">Docker重启命令</a></p>
+        </details>
+    </div>
+</body>
 </html>
-<!DOCTYPE NETSCAPE-Bookmark-file-1>
-<!-- This is an automatically generated file.
-     It will be read and overwritten.
-     DO NOT EDIT! -->
-<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-<TITLE>脚本</TITLE>
-<H1>脚本</H1>
-<DL><p>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">ctrl+z挂起进程后fg命令可以恢复</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">vpn平常使用的命令  清屏reset   网络ifconfig 拉取单个文件curl -L -O 知道域名下的所有ip--nslookup 你的域名& 恢复ls命令 unalias ls</H2>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">tmux多路后台会话功能 安装apt install -y tmux 创建一个会话进入tmux -u new-session -s 想要的名字 退出会话不中断 Crl+b然后d 重新进入会话tmux attach-session -t 自己取的名字 查看所有tmux会话tmux list-sessions 删除会话tmux kill-session -t 自己取的名字 &</H2>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">更新系统环境apt update -y && apt upgrade -y安装必备工具apt install -y curl wget sudo nodejs git</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">卸载软件包 apt-get remove 包名 卸载软件 apt-get purge 包名 卸载软件和配置文件 apt-get autoremove 移除没有使用的依赖</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">自用脚本wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/zi.sh && bash zi.sh</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">xui魔改wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjdN/x-ui/main/install.sh && bash install.sh</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">vi  /etc/hosts 在最後面添加 127.0.0.1  www.baidu.com 保存退出即可屏蔽百度</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">vi  /etc/resolv.conf 添加 nameserver 8.8.8.8 保存退出即可修改默认的dns</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">修改dns脚本wget https://gitee.com/qiancheng666/dns/raw/master/dns.sh && bash dns.sh</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">去除Shell脚本的\r字符 sed -i 's/\r//' 脚本名-----搜索文件命令find / -name 文件名-----查看log日志tail -f 文件名</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">权限命令 chmod +x 脚本名------创建文件夹命令 mkdir 文件名</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">压缩：tar -zcvf 压缩名.tar.gz 被压缩文件----解压：tar -zxvf 解压文件名.tar.gz</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">启动程序 systemctl start 程序名 重启程序systemctl reload 程序名 查看运行状态systemctl status 程序名 设置为开机自启：systemctl enable 程序名 停止程序：systemctl stop 程序名</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">流量工具 nethogs---交互式命令--m : 修改单位--r : 按流量排序--s : 按发送流量排序--q : 退出命令提示符</H3>
-     <DT><H4 ADD_DATE="1627454881" LAST_MODIFIED="0">进入容器命令 docker exec -it 容器名 /bin/bash     退出容器 Ctrl-D   查看容器位置docker inspect 容器名 --format='{{.GraphDriver.Data.MergedDir}}'  查看当前路径pwd 清除日志echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</H4>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">查看端口占用命令lsof -i:端口号--或者使用netstat -tnlp--查看单独应用线程ps -aux| grep 应用名字--查看cpu线程占用命令top和ps aux --sort=-pcpu | head -10或者pstree  -up杀死线程命令比如你的线程ID是5645646，那就可以执行：kill -9 5645646  -----查看硬盘占用命令du -h --max-depth=1 /</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">关闭端口转发bash <(wget --no-check-certificate -qO- 'https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/gost2.sh') stop 端口</H3>
-     <DT><H3 ADD_DATE="1627454881" LAST_MODIFIED="0">使用API获取网站favicon Google的API-----https://www.google.com/s2/favicons?domain=要获取的域名---The Favicon Finder 的 API---https://besticon-demo.herokuapp.com/icon?url=google.com&size=80..120..200</H3>
-     <DT><A HREF="https://keesenz.com/2022/1833.html" ADD_DATE="0">青龙修复命令</A>
-     <DT><A HREF="反代.txt" ADD_DATE="0">宝塔反代</A>
-     <DT><A HREF="https://blog.csdn.net/weixin_44162809/article/details/117705055" ADD_DATE="0">宝塔跳过手机号</A>
-     <DT><A HREF="https://blog.csdn.net/qq_32447301/article/details/79387649/" ADD_DATE="0">Docker删除容器与镜像</A>
-     <DT><A HREF="https://blog.csdn.net/EasternUnbeaten/article/details/80463837" ADD_DATE="0">Docker重启命令</A>
-<DL><p>
