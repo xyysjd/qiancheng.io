@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-    <h1>脚本</h1>
+<h1 style="text-align: center;">脚本</h1>
     <div class="container">
 
         <details>
@@ -48,6 +48,11 @@
             <p>拉取单个文件: <code>curl -L -O</code></p>
             <p>知道域名下的所有IP: <code>nslookup 你的域名</code></p>
             <p>恢复ls命令: <code>unalias ls</code></p>
+        </details>
+
+        <details>
+            <summary>自用脚本</summary>
+            <p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/zi.sh && bash zi.sh</code></p>
         </details>
 
         <details>
@@ -71,11 +76,6 @@
             <p>卸载软件: <code>apt-get remove 包名</code></p>
             <p>卸载软件和配置文件: <code>apt-get purge 包名</code></p>
             <p>移除没有使用的依赖: <code>apt-get autoremove</code></p>
-        </details>
-
-        <details>
-            <summary>自用脚本</summary>
-            <p><code>wget -N --no-check-certificate https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/zi.sh && bash zi.sh</code></p>
         </details>
 
         <details>
@@ -120,33 +120,33 @@
         <details>
             <summary>启动程序</summary>
             <p>启动程序: <code>systemctl start 程序名</code></p>
+            <p>停止程序: <code>systemctl stop 程序名</code></p>			
             <p>重启程序: <code>systemctl reload 程序名</code></p>
             <p>查看运行状态: <code>systemctl status 程序名</code></p>
             <p>设置为开机自启: <code>systemctl enable 程序名</code></p>
-            <p>停止程序: <code>systemctl stop 程序名</code></p>
         </details>
 
         <details>
             <summary>流量工具</summary>
             <p><code>nethogs</code> --- 交互式命令</p>
-            <p>- <code>-m</code>: 修改单位</p>
-            <p>- <code>-r</code>: 按流量排序</p>
-            <p>- <code>-s</code>: 按发送流量排序</p>
-            <p>- <code>-q</code>: 退出命令提示符</p>
+            <p><code>-m</code>: 修改单位</p>
+            <p><code>-r</code>: 按流量排序</p>
+            <p><code>-s</code>: 按发送流量排序</p>
+            <p><code>-q</code>: 退出命令提示符</p>
         </details>
 
         <details>
             <summary>进入容器命令</summary>
             <p><code>docker exec -it 容器名 /bin/bash</code></p>
             <p>退出容器: <code>Ctrl-D</code></p>
-            <p>查看容器位置: <code>docker inspect 容器名 --format='{{.GraphDriver.Data.MergedDir}}'</code></p>
+            <p>查看容器位置: <code>docker inspect 容器名 </code></p>
             <p>查看当前路径: <code>pwd</code></p>
             <p>清除日志: <code>echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</code></p>
         </details>
 
         <details>
             <summary>查看端口占用命令</summary>
-            <p><code>lsof -i:端口号</code> 或者使用 <code>netstat -tnlp</code></p>
+            <p><code>netstat -tnlp</code> 或者使用 <code>lsof -i:端口号</code></p>
             <p>查看单独应用线程: <code>ps -aux | grep 应用名字</code></p>
             <p>查看cpu线程占用命令: <code>top</code> 和 <code>ps aux --sort=-pcpu | head -10</code> 或者 <code>pstree -up</code></p>
             <p>杀死线程命令: 如果你的线程ID是 <code>5645646</code>，那么可以执行：<code>kill -9 5645646</code></p>
