@@ -138,12 +138,14 @@
         </details>
 
         <details>
-            <summary>进入容器命令</summary>
-            <p><code>docker exec -it 容器名 /bin/bash</code></p>
+            <summary>docker命令</summary>
+            <p>进入容器命令: <code>docker exec -it 容器名 /bin/bash</code></p>
             <p>退出容器: <code>Ctrl-D</code></p>
             <p>查看容器位置: <code>docker inspect 容器名 </code></p>
             <p>查看当前路径: <code>pwd</code></p>
             <p>清除日志: <code>echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</code></p>
+	    <p>docker-compose更新: <code>docker-compose pull</code></p>	
+	    <p>docker-compose运行: <code>docker-compose up -d</code></p>
         </details>
 
         <details>
