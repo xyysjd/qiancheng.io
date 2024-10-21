@@ -44,12 +44,14 @@
         <details>
             <summary>vpn平常使用的命令</summary>
             <p>清屏: <code>reset</code></p>
-			<p>恢复ls命令: <code>unalias ls</code></p>
+	    <p>恢复ls命令: <code>unalias ls</code></p>
             <p>网络: <code>ifconfig</code></p>
             <p>拉取单个文件: <code>curl -L -O</code></p>
             <p>知道域名下的所有IP: <code>nslookup 你的域名</code></p>
-			<p>权限命令chmod +x 脚本名</code></p>
-			<p>创建文件夹命令: <code>mkdir 文件名</code></p>
+	    <p>权限命令chmod +x 脚本名</code></p>
+	    <p>创建文件夹命令: <code>mkdir 文件名</code></p>
+	    <p>搜索文件命令: <code>find / -name 文件名</code></p>
+            <p>查看log日志: <code>tail -f 文件名</code></p>
             
         </details>
 
@@ -94,18 +96,12 @@
         <details>
             <summary>修改DNS</summary>
             <p><code>vi /etc/resolv.conf</code> 添加 <code>nameserver 8.8.8.8</code>，保存退出即可修改默认的DNS。</p>
-        </details>
-
-        <details>
-            <summary>修改DNS脚本</summary>
-            <p><code>wget https://gitee.com/qiancheng666/dns/raw/master/dns.sh && bash dns.sh</code></p>
+	    <p>脚本:<code>wget https://gitee.com/qiancheng666/dns/raw/master/dns.sh && bash dns.sh</code></p>
         </details>
 
         <details>
             <summary>去除Shell脚本的\r字符</summary>
             <p><code>sed -i 's/\r//' 脚本名</code></p>
-            <p>搜索文件命令: <code>find / -name 文件名</code></p>
-            <p>查看log日志: <code>tail -f 文件名</code></p>
         </details>
 
         <details>
@@ -117,6 +113,7 @@
             <summary>压缩与解压</summary>
             <p>压缩: <code>tar -zcvf 压缩名.tar.gz 被压缩文件</code></p>
             <p>解压: <code>tar -zxvf 解压文件名.tar.gz</code></p>
+	    <p>解压zip: <code>unzip 解压文件名 -d 解压到的文件夹</code></p>
         </details>
 
         <details>
