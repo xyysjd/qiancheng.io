@@ -79,6 +79,18 @@
         </details>
 
         <details>
+            <summary>ufw防火墙命令</summary>
+            <p>启动 UFW： <code>ufw enable</code></p>
+            <p>禁用 UFW： <code>ufw disable</code></p>
+            <p>删除所有规则并恢复默认设置： <code>ufw reset</code></p>
+            <p>允许某个端口的访问：<code>ufw allow 80</code></p>
+            <p>禁用ip和ip段：<code>ufw deny from 162.142.125.0/24</code></p>
+            <p>查看当前已有的规则：<code>ufw status numbered</code></p>
+            <p>删除指定编号：<code> ufw delete 编号</code></p>
+            <p>按编号批量删除规则：<code>for i in {8..3}; do yes |  ufw delete $i; done这个意思就是3-8的编号全部删除</code></p>
+        </details>
+
+        <details>
             <summary>卸载软件包</summary>
             <p>卸载软件: <code>apt-get remove 包名</code></p>
             <p>卸载软件和配置文件: <code>apt-get purge 包名</code></p>
