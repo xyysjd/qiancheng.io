@@ -44,15 +44,16 @@
         <details>
             <summary>vpn平常使用的命令</summary>
             <p>清屏: <code>reset</code></p>
-	    <p>查看操作系统: <code>cat /etc/os-release</code></p>
-	    <p>清空文件内容: <code>echo -n  > 文件名</code></p>
-	    <p>恢复ls命令: <code>unalias ls</code></p>
+            <p>查看操作系统: <code>cat /etc/os-release</code></p>
+            <p>清空文件内容: <code>echo -n  > 文件名</code></p>
+            <p>恢复ls命令: <code>unalias ls</code></p>
             <p>网络: <code>ifconfig</code></p>
             <p>拉取单个文件: <code>curl -L -O</code></p>
             <p>知道域名下的所有IP: <code>nslookup 你的域名</code></p>
-	    <p>权限命令chmod +x 脚本名</code></p>
-	    <p>创建文件夹命令: <code>mkdir 文件名</code></p>
-	    <p>搜索文件命令: <code>find / -name 文件名</code></p>
+            <p>权限命令chmod +x 脚本名</code></p>
+            <p>创建文件夹命令: <code>mkdir 文件名</code></p>
+            <p>搜索文件命令: <code>find / -name 文件名</code></p>
+            <p>清除当前目录下空文件夹: <code>find -type d -empty -delete</code></p>
             <p>查看log日志: <code>tail -f 文件名</code></p>
             
         </details>
@@ -112,7 +113,7 @@
 
         <details>
             <summary>修改DNS</summary>
-            <p><code>vi /etc/resolv.conf</code> 添加 <code>nameserver 8.8.8.8</code>，保存退出即可修改默认的DNS。</p>
+        <p><code>vi /etc/resolv.conf</code> 添加 <code>nameserver 8.8.8.8</code>，保存退出即可修改默认的DNS。</p>
 	    <p>脚本:<code>wget https://gitee.com/qiancheng666/dns/raw/master/dns.sh && bash dns.sh</code></p>
 	    <p>锁定文件:<code>sudo chattr +i /etc/resolv.conf</code>在运行一遍就是解锁</p>
 	    <p>查看文件是否锁定<code>lsattr /etc/resolv.conf</code>如果输出看到----i--------就说明是锁定</p>
