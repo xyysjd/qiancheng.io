@@ -82,12 +82,13 @@
         <details>
             <summary>ufw防火墙命令</summary>
             <p>停止iptables服务：<code>systemctl stop iptables</code></p>
-	    <p>开机自启动UFW：<code>systemctl enable ufw</code></p>
+            <p>安装ufw服务：<code>apt install ufw</code></p>
+	        <p>开机自启动UFW：<code>systemctl enable ufw</code></p>
             <p>启动 UFW： <code>ufw enable</code></p>
             <p>禁用 UFW： <code>ufw disable</code></p>
             <p>删除所有规则并恢复默认设置： <code>ufw reset</code></p>
             <p>允许某个端口的访问：<code>ufw allow 80</code></p>
-	    <p>删除端口的规则：<code> ufw delete allow 80</code></p>
+	        <p>删除端口的规则：<code> ufw delete allow 80</code></p>
             <p>禁用ip和ip段：<code>ufw deny from 162.142.125.0/24</code></p>
             <p>查看当前已有的规则：<code>ufw status numbered</code></p>
             <p>根据编号删除：<code> ufw delete 编号</code></p>
@@ -162,8 +163,8 @@
             <p>查看容器位置: <code>docker inspect 容器名 </code></p>
             <p>查看当前路径: <code>pwd</code></p>
             <p>清除日志: <code>echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</code></p>
-	    <p>docker-compose更新: <code>docker-compose pull</code></p>	
-	    <p>docker-compose运行: <code>docker-compose up -d</code></p>
+	        <p>docker-compose更新: <code>docker-compose pull</code></p>	
+	        <p>docker-compose运行: <code>docker-compose up -d</code></p>
         </details>
 
         <details>
