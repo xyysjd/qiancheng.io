@@ -116,9 +116,9 @@ function oraclefirewall(){
     fi
 }
 
-#秋水网速测试
+#Geekbench 5
 function speedtest(){
-wget -qO- bench.sh | bash
+bash <(wget -qO- https://raw.githubusercontent.com/i-abc/GB5/main/gb5-test.sh)
 }
 
 #路由追踪
@@ -301,7 +301,7 @@ function start_menu(){
     blue "内核版本：$kernelVer"
     blue "IPv4地址：$IP4"
     blue "IPv6地址：$IP6"
-    green " 1. 融合怪                 2. 秋水网速测试"                  
+    green " 1. 融合怪                 2. Geekbench 5"                  
     green " 3. 路由追踪               4. 流媒体检测"
     green " 5. 安装warp-go            6. 宝塔开心版"
     green " 7. x-ui安装               8. 八合一脚本"
@@ -315,7 +315,7 @@ function start_menu(){
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
-#秋水网速测试
+#Geekbench 5
         2 ) speedtest ;;
 #路由追踪
         3 ) jcnf ;;
