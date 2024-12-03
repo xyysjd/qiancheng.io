@@ -55,6 +55,9 @@
             <p>搜索文件命令: <code>find / -name 文件名</code></p>
             <p>清除当前目录下空文件夹: <code>find -type d -empty -delete</code></p>
             <p>查看log日志: <code>tail -f 文件名</code></p>
+	    <p>设置时间为上海: <code>date先查看当前时间然后ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+echo "Asia/Shanghai" > /etc/timezone
+</code></p>
             
         </details>
 
