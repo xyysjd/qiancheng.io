@@ -166,6 +166,7 @@ echo "Asia/Shanghai" > /etc/timezone
             <p>查看容器位置: <code>docker inspect 容器名 </code></p>
             <p>查看当前路径: <code>pwd</code></p>
             <p>清除日志: <code>echo "" > $(docker inspect --format='{{.LogPath}}' 容器名)</code></p>
+		<p>删除所有未使用的镜像、容器、数据卷和网络: <code>docker system prune --all --volumes --force</code></p>
 	        <p>docker-compose更新: <code>docker-compose pull</code></p>	
 	        <p>docker-compose运行: <code>docker-compose up -d</code></p>
         </details>
