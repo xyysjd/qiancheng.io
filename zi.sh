@@ -164,7 +164,7 @@ bash /root/warp-go.sh [option] [lisence]
 
 #融合怪
 function superbench(){
-curl -L https://gitlab.com/spiritysdx/za/-/raw/main/ecs.sh -o ecs.sh && chmod +x ecs.sh && bash ecs.sh
+bash <(wget -qO- bash.spiritlhl.net/ecs) -m 1 -bansp -ctype gb5
 }
 
 #开启bbr加速
