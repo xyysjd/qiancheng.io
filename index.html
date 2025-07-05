@@ -106,7 +106,8 @@ echo "Asia/Shanghai" > /etc/timezone
 	        <p>删除端口的规则：<code> ufw delete allow 80</code></p>
             <p>禁用ip和ip段：<code>ufw deny from 162.142.125.0/24</code></p>
             <p>查看当前已有的规则：<code>ufw status numbered</code></p>
-            <p>根据编号删除：<code> ufw delete 编号</code></p>
+            <p>根据编号删除：<code> ufw delete 编号 这个是删除单个的，注意删除的时候编号必须从大到小删除</code></p>
+            <p>根据编号多个删除：<code> for i in 27 10 2; do yes | ufw delete $i; done 这个是删除多个的</code></p>		
             <p>按编号批量删除规则：<code>for i in {8..3}; do yes |  ufw delete $i; done这个意思就是3-8的编号全部删除</code></p>
         </details>
 
