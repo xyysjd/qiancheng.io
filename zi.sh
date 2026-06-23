@@ -181,6 +181,16 @@ blue "下载完成"
 bash /root/install.sh
 }
 
+#hysteria
+function hysteria(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/hysteria.sh -o hysteria.sh && chmod +x hysteria.sh && ./hysteria.sh
+}
+
+#Any
+function Any(){
+curl -L https://raw.githubusercontent.com/xyysjd/qiancheng.io/main/Any.sh -o Any.sh && chmod +x Any.sh && ./Any.sh
+}
+
 #流媒体检测
 function liumeiti(){
 wget -O "/root/liumeiti.sh" "https://raw.githubusercontent.com/shidahuilang/SS-SSR-TG-iptables-bt/main/sh/liumeiti.sh" --no-check-certificate -T 30 -t 5 -d
@@ -312,6 +322,7 @@ function start_menu(){
     green " 17. 开启swap             18. screen"
     green " 19. neko优化             20.更换语言为中文"
     green " 21. XrayR                22. 清理垃圾"
+    green " 23. hysteria                24. Any"
     green " 0. 退出脚本"
     read -p "请输入数字:" menuNumberInput
     case "$menuNumberInput" in
@@ -368,6 +379,12 @@ function start_menu(){
 
 #清理垃圾
       22 ) qllj ;;
+
+#hysteria
+      23 ) hysteria ;;
+
+#Any
+      24 ) Any ;;
 
 #退出
         0 ) exit 1 ;;
